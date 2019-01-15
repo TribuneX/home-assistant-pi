@@ -11,7 +11,7 @@ ARG PLUGINS="sqlalchemy|HAP-python|PyXiaomiGateway|TravisPy|broadlink|colorlog|c
 
 ADD "https://raw.githubusercontent.com/home-assistant/home-assistant/${VERSION}/requirements_all.txt" /tmp
 
-RUN apk add --no-cache git python3 ca-certificates libffi-dev libressl-dev nmap iputils && \
+RUN apk add --no-cache git python3 ca-certificates libffi-dev libressl-dev nmap iputils g++ gcc libxslt-dev && \
     addgroup -g ${GUID} hass && \
     adduser -h /data -D -G hass -s /bin/sh -u ${UID} hass && \
     pip3 install --upgrade --no-cache-dir pip && \
