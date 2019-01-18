@@ -11,13 +11,12 @@ ARG PLUGINS="sqlalchemy|HAP-python|PyXiaomiGateway|TravisPy|broadlink|colorlog|c
 
 ADD "https://raw.githubusercontent.com/home-assistant/home-assistant/${VERSION}/requirements_all.txt" /tmp
 
-RUN apk add --no-cache git python3 ca-certificates libffi-dev libressl-dev nmap iputils g++ gcc libxslt-dev && \
+RUN apk add --no-cache git python3 ca-certificates libffi-dev libressl-dev nmap iputils g++ gcc libxslt-dev glib-dev && \
     addgroup -g ${GUID} hass && \
     adduser -h /data -D -G hass -s /bin/sh -u ${UID} hass && \
     pip3 install --upgrade --no-cache-dir pip && \
     apk add --no-cache --virtual=build-dependencies build-base linux-headers python3-dev tzdata && \
     cp "/usr/share/zoneinfo/${TIMEZONE}" /etc/localtime && echo "${TIMEZONE}" > /etc/timezone && \
-    LDFLAGS=" -llog" pip3 install bluepy && \
     pip3 install --no-cache-dir -r /tmp/requirements_all.txt && \
     pip3 install --no-cache-dir homeassistant=="${VERSION}" && \
     apk del build-dependencies && \
