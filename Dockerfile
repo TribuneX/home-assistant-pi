@@ -17,6 +17,7 @@ RUN apk add --no-cache git python3 ca-certificates libffi-dev libressl-dev nmap 
     pip3 install --upgrade --no-cache-dir pip && \
     apk add --no-cache --virtual=build-dependencies build-base linux-headers python3-dev tzdata && \
     cp "/usr/share/zoneinfo/${TIMEZONE}" /etc/localtime && echo "${TIMEZONE}" > /etc/timezone && \
+    LDFLAGS=" -llog" pip3 install bluepy && \
     pip3 install --no-cache-dir -r /tmp/requirements_all.txt && \
     pip3 install --no-cache-dir homeassistant=="${VERSION}" && \
     apk del build-dependencies && \
