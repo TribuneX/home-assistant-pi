@@ -7,7 +7,7 @@ ARG UID=1000
 ARG GUID=1000
 ARG MAKEFLAGS=-j4
 ARG VERSION=0.85.1
-ARG PLUGINS="gTTS-token|mutagen|warrant|http|sqlalchemy|HAP-python|PyXiaomiGateway|TravisPy|broadlink|colorlog|construct|distro|fastdotcom|fritzconnection|fritzhome|hole|frontend|influxdb|libnacl|luftdaten|miflora|netdisco|paho-mqtt|psutil|pyatv|pyfritzhome|pysonos|python-forecastio|python-miio|pytradfri[async]|pyuptimerobot|wakeonlan|aiohttp_cors|pyotp|PyQRCode"
+ARG PLUGINS="async-upnp-client|gTTS-token|mutagen|warrant|http|sqlalchemy|HAP-python|PyXiaomiGateway|TravisPy|broadlink|colorlog|construct|distro|fastdotcom|fritzconnection|fritzhome|hole|frontend|influxdb|libnacl|luftdaten|miflora|netdisco|paho-mqtt|psutil|pyatv|pyfritzhome|pysonos|python-forecastio|python-miio|pytradfri|pyuptimerobot|wakeonlan|aiohttp_cors|pyotp|PyQRCode"
 
 ADD "https://raw.githubusercontent.com/home-assistant/home-assistant/${VERSION}/requirements_all.txt" /tmp
 
